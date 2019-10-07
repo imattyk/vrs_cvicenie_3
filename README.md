@@ -3,7 +3,7 @@
 - spresnenie úlohy č. 2 
 
 # Zadanie
-- vytvorťe funkciu na detekciu hrany:
+### Vytvorťe funkciu na detekciu hrany:
 
 ```javascript
 EDGE_TYPE edge_detect(uint8_t pin_state, uint8_t samples);
@@ -19,4 +19,4 @@ EDGE_TYPE edge_detect(uint8_t pin_state, uint8_t samples);
     - ak by pri čítaní zo vstupného pinu nastala situácia 0,1,1,1,0,1 - pri zmene stavu z 0 na 1 sa na vstupe vyčítala hodnota 1 len 3-krát v rade, vyhodnotí sa to ako "žiadna hrana" pretože nebola splnená podmienka
 
 - po zdetegovaní hrany(nábežnej alebo dobežnej) zmente frekvenciu blikania LED
-- ako vstup využite GPIOA pin 3
+- ##### ako vstup využite GPIOA pin 3

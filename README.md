@@ -18,5 +18,5 @@ EDGE_TYPE edge_detect(uint8_t pin_state, uint8_t samples);
     - aby bola detegovaná hrana, musí sa 5-krát v rade prečítať rovnaký stav tj. 0,1,1,1,1,1 - nábežná hrana bola detegovaná
     - ak by pri čítaní zo vstupného pinu nastala situácia 0,1,1,1,0,1 - pri zmene stavu z 0 na 1 sa na vstupe vyčítala hodnota 1 len 3-krát v rade, vyhodnotí sa to ako "žiadna hrana" pretože nebola splnená podmienka
 
-- po zdetegovaní hrany(nábežnej alebo dobežnej) zmente frekvenciu blikania LED
+- po zdetegovaní hrany(nábežnej alebo dobežnej) zmente stav LED z vypnutej na zapnutú a opačne
 - ##### ako vstup využite GPIOA pin 3

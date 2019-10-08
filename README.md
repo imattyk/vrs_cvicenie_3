@@ -9,7 +9,7 @@
 EDGE_TYPE edge_detect(uint8_t pin_state, uint8_t samples);
 ```
 
-- definujte enum "EDGE_TYPE", ktorý bude mať 3 prvky: 0 - žiadna hrana, 1 - nábežna hrana, 2 -dobežna hrana
+- definujte enum "EDGE_TYPE", ktorý bude mať 3 prvky: 0 - žiadna hrana (NONE), 1 - nábežna hrana (RISE), 2 -dobežna hrana (FALL)
 - definovaný enum bude slúžiť ako návratová hodnota funkcie "edge_detect"
 - vstupný parameter "pin_state" je aktuálny stav vstupného pinu (hodnota 0,1), na ktorom sa deteguje hrana 
 - vstupný parameter "samples" definuje, koľkokrát v rade musí byť detegovaný nový stav vstupného pinu, aby sa to považovalo za hranu

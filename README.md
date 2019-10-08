@@ -20,3 +20,6 @@ EDGE_TYPE edge_detect(uint8_t pin_state, uint8_t samples);
 
 - po zdetegovaní hrany(nábežnej alebo dobežnej) zmente stav LED z vypnutej na zapnutú a opačne
 - ##### ako vstup využite GPIOA pin 3
+
+#### Zadania odovzdávajte na e-mail: predmet.vrs@gmail.com
+#### Odovzdáva sa subor "main.c".

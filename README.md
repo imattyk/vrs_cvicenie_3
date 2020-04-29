@@ -46,5 +46,5 @@ EDGE_TYPE edge_detect(uint8_t pin_state, uint8_t samples);
     
 5. Required ROS packages:
     - clone repositories to the catkin workspace and build them
-	  - octomap_ros: https://github.com/OctoMap/octomap_ros.git
-	  - octomap_msgs: https://github.com/OctoMap/octomap_msgs.git
+    - octomap_ros: https://github.com/OctoMap/octomap_ros.git
+    - octomap_msgs: https://github.com/OctoMap/octomap_msgs.git

@@ -26,7 +26,7 @@ EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples);
 5. #### Upraviť program vykonávajúci sa v "main" funkcii tak, aby LED zmenila svoj stav (On -> Off, Off -> On) len vtedy, ak bol detegovaný vami zvolený typ hrany. LED bude meniť svoj stav len ak bola detegovaná nábežná hrana alebo bude meniť svoj stav len v prípade detekcie dobežnej hrany. 
 
 
-6. Odovzdáva sa odkaz k vašemu repozitáru.
+6. #### Odovzdáva sa odkaz k vašemu repozitáru.
  
  <p align="center">
     <img src="https://github.com/VRS-Predmet/vrs_cvicenie_2/blob/master/documents/circuit.png" width="1000" title="LED, button and Stm32 - circuit.">

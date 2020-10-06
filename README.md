@@ -14,7 +14,7 @@
  4. #### V súbore "Inc/assignment.h" deklarujte a v subore "Src/main.c" definujte funkciu "edgeDetect", ktorej úlohou je detegovať hranu (stlačenie tlačidla), vracia hodnotu typu "EDGE_TYPE" a má dva vstupné argumenty:
  
 ```javascript
-EDGE_TYPE edge_detect(uint8_t pin_state, uint8_t samples);
+EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples);
 ```
   - Vstupný parameter "pin_state" predstavuje aktuálny stav vstupného pinu, na ktorom sa deteguje hrana. Nadobúda hodnotu "1" alebo "0". 
   - Vstupný parameter "samples" definuje koľkokrát v rade musí byť detegovaný nový stav vstupného pinu, aby sa to považovalo za hranu - stlačenie tlačidla.

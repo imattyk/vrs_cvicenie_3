@@ -11,7 +11,7 @@
  1. #### Vytvoriť repozitár, kde nahrajete svoj projekt z predchádzajúceho zadania.
  2. #### Pracovať s vlastným repozitárom tak, aby boli vydieť "commits" (editačné zmeny). Ideálne od celej dvojice.
  3. #### V súbore "Inc/assignment.h" definovať enum "EDGE_TYPE", ktorý bude enumerovať 3 stavy: žiadna hrana (NONE = 0), nábežná hrana (RISE = 1), dobežná hrana (FALL = 2).
- 4. #### V súbore "Inc/assignment.h" deklarujte a v subore "Src/main.c" definujte funkciu "edgeDetect", ktorej úlohou je detegovať hranu (stlačenie tlačidla), vracia hodnotu typu "EDGE_TYPE" a má dva vstupné argumenty:
+ 4. #### V súbore "Inc/assignment.h" deklarujte a v subore "Src/main.c" definujte funkciu "edgeDetect", ktorej úlohou je detegovať hranu (stlačenie tlačidla). Funkcia vracia hodnotu typu "EDGE_TYPE" a má dva vstupné argumenty:
  
 ```javascript
 EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples);

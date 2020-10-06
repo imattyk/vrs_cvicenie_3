@@ -29,5 +29,5 @@ EDGE_TYPE edgeDetect(uint8_t pin_state, uint8_t samples);
 6. #### Odovzdáva sa odkaz k vašemu repozitáru.
  
  <p align="center">
-    <img src="https://github.com/VRS-Predmet/vrs_cvicenie_2/blob/master/documents/edge_detect.png"  title="LED, button and Stm32 - circuit.">
+    <img src="https://github.com/VRS-Predmet/vrs_cvicenie_2/blob/master/documents/edge_detect.png" width="2000" height="250" title="LED, button and Stm32 - circuit.">
 </p>

@@ -53,11 +53,52 @@ int main(void)
 // NO pull pre GPIOA 4
 	*((volatile uint32_t *)((uint32_t)(GPIOA_BASE_ADDR + GPIOA_PUPDR_REG))) &= ~(0x3 << 10);
 
+uint8_t oldstate = 0x00;
+uint8_t helpsample = 0;
+uint8_t helpstate = 0;
+
+uint8_t pressed = 0x00;
+uint8_t released = 0x10;
+
+EDGE_TYPE edgeDetect(pin_state, samples){
+	//oldstate = (uint8_t)pin_state;
+
+	if ((uint8_t)pin_state == (uint8_t)pressed && (uint8_t)oldstate == pressed){
+		oldstate = (uint8_t)pin_state;
+		return NONE;
+	}
+	if ((uint8_t)pin_state == (uint8_t)released && (uint8_t)oldstate == pressed){
+		oldstate = (uint8_t)pin_state;
+		return FALL;
+	}
+	if ((uint8_t)pin_state == (uint8_t)pressed && (uint8_t)oldstate == released){
+		oldstate = (uint8_t)pin_state;
+		while(1){
+			helpsample++;
+			helpstate = (uint8_t)BUTTON_GET_STATE;
+			for(uint32_t i = 0; i < 0xFFFF0; i++){} // 1sec delay
+			if (helpstate == 16){helpsample=0;return NONE;}
+			if (helpsample == samples){
+				return RISE;
+			}
+
+		}
+		return NONE;
+	}
+	if ((uint8_t)pin_state == (uint8_t)released && (uint8_t)oldstate == released){
+		oldstate = (uint8_t)pin_state;
+		return NONE;
+	}
+
+}
+
+
   while (1)
   {
 	  //GPIO IDR, read input from pin 6
-	  if(BUTTON_GET_STATE)
+	  if(edgeDetect(BUTTON_GET_STATE,5) == RISE)
 	  {
+
 		  LED_ON;
 		  // 0.25s delay, delay funkcia co ste tu mali nefungovala (runtime error)
 		  for(uint16_t i = 0; i < 0xFF00; i++){}
@@ -67,14 +108,16 @@ int main(void)
 	  }
 	  else
 	  {
-		  LED_ON;
+		 /* LED_ON;
 		  //delay 1s
 		  for(uint32_t i = 0; i < 0xFFFF0; i++){}
 
 		  LED_OFF;
 		  //delay 1s
 		  for(uint32_t i = 0; i < 0xFFF00; i++){}
+		  */
 	  }
+	  helpsample = 0;
   }
 
 }

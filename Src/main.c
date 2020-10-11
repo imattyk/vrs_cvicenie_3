@@ -34,6 +34,7 @@ int main(void)
   /* Enable clock for GPIO port A*/
 
 	//type your code for GPIOA clock enable here:
+
 	*((volatile uint32_t *) (uint32_t)(RCC_BASE_ADDR + RCC_AHBENR_REG)) |= (uint32_t)(1 << 17);
 
 // PIN 3 INPUT
@@ -56,6 +57,8 @@ int main(void)
 uint8_t oldstate = 0x00;
 uint8_t helpsample = 0;
 uint8_t helpstate = 0;
+uint8_t ledstate = 0;
+
 
 uint8_t pressed = 0x00;
 uint8_t released = 0x10;
@@ -81,7 +84,6 @@ EDGE_TYPE edgeDetect(pin_state, samples){
 			if (helpsample == samples){
 				return RISE;
 			}
-
 		}
 		return NONE;
 	}
@@ -96,26 +98,19 @@ EDGE_TYPE edgeDetect(pin_state, samples){
   while (1)
   {
 	  //GPIO IDR, read input from pin 6
-	  if(edgeDetect(BUTTON_GET_STATE,5) == RISE)
+	  if(ledstate == 0 && edgeDetect(BUTTON_GET_STATE,5) == RISE)
 	  {
 
 		  LED_ON;
+		  ledstate = 1;
 		  // 0.25s delay, delay funkcia co ste tu mali nefungovala (runtime error)
 		  for(uint16_t i = 0; i < 0xFF00; i++){}
-		  LED_OFF;
-		  // 0.25 delay
-		  for(uint16_t i = 0; i < 0xFF00; i++){}
-	  }
-	  else
-	  {
-		 /* LED_ON;
-		  //delay 1s
-		  for(uint32_t i = 0; i < 0xFFFF0; i++){}
 
+	  }
+	  else if (ledstate == 1 && edgeDetect(BUTTON_GET_STATE,5) == RISE)
+	  {
 		  LED_OFF;
-		  //delay 1s
-		  for(uint32_t i = 0; i < 0xFFF00; i++){}
-		  */
+		  ledstate = 0;
 	  }
 	  helpsample = 0;
   }
